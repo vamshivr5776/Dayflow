@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dayflow — Every workday, perfectly aligned.</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E1815'/%3E%3Cpath d='M6 20 L13 12 L18 17 L26 8' stroke='%23FFB35C' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 14L9 8L13.5 12.5L20 5" stroke="#FFB35C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      Dayflow
+    </div>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#roles">Roles</a></li>
+      <li><a href="#get-started">Get started</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#" class="btn btn-ghost">Sign in</a>
+      <a href="#get-started" class="btn btn-solid">Get started</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <span class="eyebrow">HR operating system</span>
+      <h1>Every workday,<br><span>perfectly aligned.</span></h1>
+      <p class="lede">Dayflow brings attendance, leave, payroll visibility and approvals into one place — so employees always know where they stand, and HR never chases a spreadsheet again.</p>
+      <div class="hero-ctas">
+        <a href="#get-started" class="btn btn-solid">Create your account</a>
+        <a href="#features" class="btn btn-ghost">See how it works</a>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="timeline-card reveal">
+        <div class="timeline-head">
+          <h3>A day inside Dayflow</h3>
+          <span class="mono">TODAY · SHIFT 09:00–18:00</span>
+        </div>
+        <div class="track-area">
+          <div class="track"><div class="track-fill"></div></div>
+
+          <div class="tick" style="left:0%"></div>
+          <div class="tick-label" style="left:0%">09:00</div>
+          <div class="tick" style="left:25%"></div>
+          <div class="tick-label" style="left:25%">11:15</div>
+          <div class="tick" style="left:50%"></div>
+          <div class="tick-label" style="left:50%">13:30</div>
+          <div class="tick" style="left:75%"></div>
+          <div class="tick-label" style="left:75%">15:45</div>
+          <div class="tick" style="left:100%"></div>
+          <div class="tick-label" style="left:100%; transform:translateX(-100%)">18:00</div>
+
+          <div class="marker" style="left:2%; animation-delay:.6s">
+            <div class="chip mono">IN · <b>09:02</b></div>
+            <div class="dot"></div>
+          </div>
+          <div class="marker" style="left:39%; animation-delay:1s">
+            <div class="chip mono">BREAK · <b>12:30</b></div>
+            <div class="dot"></div>
+          </div>
+          <div class="marker" style="left:56%; animation-delay:1.3s">
+            <div class="chip mono">BACK · <b>14:00</b></div>
+            <div class="dot"></div>
+          </div>
+          <div class="marker leave" style="left:81%; animation-delay:1.6s">
+            <div class="chip mono">ON LEAVE · <b>APPROVED</b></div>
+            <div class="dot"></div>
+          </div>
+          <div class="marker" style="left:98%; animation-delay:1.9s">
+            <div class="chip mono">OUT · <b>18:04</b></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What's inside</span>
+        <h2>Everything HR touches, in one system.</h2>
+        <p>Six workflows, one login — built around how admins and employees actually move through a workday.</p>
+      </div>
+
+      <div class="feature-grid reveal">
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <h3>Attendance tracking</h3>
+          <p>Daily and weekly views with check-in / check-out, and clear status: present, absent, half-day or leave.</p>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
+          <h3>Leave & time-off</h3>
+          <p>Apply for paid, sick or unpaid leave with a date range and remarks, then track pending, approved or rejected status.</p>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
+          <h3>Payroll visibility</h3>
+          <p>Employees get a clear, read-only view of their salary structure; admins keep full control over accuracy.</p>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <h3>Approval workflows</h3>
+          <p>Admins review requests, approve or reject with a comment, and changes reflect in employee records immediately.</p>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg></div>
+          <h3>Role-based access</h3>
+          <p>Employees and HR officers each see exactly what their role needs — nothing more, nothing hidden.</p>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+          <h3>Employee profiles</h3>
+          <p>Personal details, job details, documents and profile photo — editable within the limits each role allows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider wrap">
+
+  <!-- ROLES -->
+  <section id="roles">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Built for two roles</span>
+        <h2>One system, two very different days.</h2>
+        <p>Dayflow's dashboard reshapes itself depending on who's signed in.</p>
+      </div>
+
+      <div class="roles reveal">
+        <div class="role-card employee">
+          <span class="tag">Employee</span>
+          <h3>Comes in, checks status, moves on.</h3>
+          <ul>
+            <li>View personal profile, job details and documents</li>
+            <li>Check in / check out and view attendance history</li>
+            <li>Apply for leave and track its approval status</li>
+            <li>View salary structure — read-only</li>
+            <li>Edit limited fields like address, phone and photo</li>
+          </ul>
+        </div>
+        <div class="role-card admin">
+          <span class="tag">Admin / HR officer</span>
+          <h3>Sees everyone, approves everything.</h3>
+          <ul>
+            <li>Manage the full employee list and switch between profiles</li>
+            <li>Review attendance records across the team</li>
+            <li>Approve or reject leave requests, with comments</li>
+            <li>Update salary structures and ensure payroll accuracy</li>
+            <li>Edit any employee's details when needed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="get-started">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <h2>Bring your team into flow.</h2>
+        <div class="cta-band-actions">
+          <a href="#" class="btn btn-solid">Sign up free</a>
+          <a href="#" class="btn btn-ghost">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="logo">
+        <span class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 14L9 8L13.5 12.5L20 5" stroke="#FFB35C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        Dayflow
+      </div>
+      <ul class="footer-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#roles">Roles</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <p class="footer-fine">© 2026 Dayflow. Human Resource Management System.</p>
+  </div>
+</footer>
+
+<script>
+  // Scroll-reveal for sections
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
