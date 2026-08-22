@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Dayflow</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E1815'/%3E%3Cpath d='M6 20 L13 12 L18 17 L26 8' stroke='%23FFB35C' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="dash-body">
+
+<header class="dash-topbar">
+  <nav class="wrap">
+    <div class="logo">
+      <span class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 14L9 8L13.5 12.5L20 5" stroke="#FFB35C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      Dayflow
+    </div>
+    <div class="dash-user">
+      <span class="role-badge" id="roleBadge">—</span>
+      <div class="dash-user-info">
+        <span class="name" id="userName">—</span>
+        <span class="email" id="userEmail">—</span>
+      </div>
+      <button class="btn btn-ghost btn-sm" id="signOutBtn">Sign out</button>
+    </div>
+  </nav>
+</header>
+
+<div class="dash-shell">
+  <aside class="dash-sidebar">
+    <nav class="dash-nav" id="dashNav">
+      <button data-panel="overview" class="active">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        Overview
+      </button>
+      <button data-panel="attendance">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        Attendance
+      </button>
+      <button data-panel="leave">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        Leave
+      </button>
+      <button data-panel="payroll">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg>
+        Payroll
+      </button>
+      <button data-panel="profile">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        Profile
+      </button>
+      <div class="divider" id="adminDivider" style="display:none"></div>
+      <button data-panel="employees" id="employeesNavBtn" style="display:none">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Employees
+      </button>
+    </nav>
+  </aside>
+
+  <main class="dash-main">
+
+    <!-- OVERVIEW -->
+    <section class="dash-panel active" id="panel-overview">
+      <div class="panel-head">
+        <div>
+          <h2 id="overviewGreeting">Overview</h2>
+          <p id="overviewSub">Here's where things stand today.</p>
+        </div>
+      </div>
+      <div class="stat-grid" id="overviewStats"></div>
+      <div class="dash-card" id="overviewActionsCard" style="display:none">
+        <h3>Today</h3>
+        <div class="inline-actions">
+          <button class="btn btn-solid btn-sm" id="checkInBtn">Check in</button>
+          <button class="btn btn-ghost btn-sm" id="checkOutBtn">Check out</button>
+        </div>
+      </div>
+      <div class="dash-card">
+        <h3 id="overviewListTitle">Recent leave requests</h3>
+        <div class="table-wrap"><table class="dash-table" id="overviewLeaveTable"><thead></thead><tbody></tbody></table></div>
+        <div class="empty-state" id="overviewLeaveEmpty" style="display:none">No leave requests yet.</div>
+      </div>
+    </section>
+
+    <!-- ATTENDANCE -->
+    <section class="dash-panel" id="panel-attendance">
+      <div class="panel-head">
+        <div>
+          <h2>Attendance</h2>
+          <p id="attendanceSub">Your check-in / check-out history.</p>
+        </div>
+        <div class="inline-actions" id="attendanceEmployeeActions">
+          <button class="btn btn-solid btn-sm" id="checkInBtn2">Check in</button>
+          <button class="btn btn-ghost btn-sm" id="checkOutBtn2">Check out</button>
+        </div>
+      </div>
+
+      <!-- Employee view -->
+      <div id="attendanceEmployeeView">
+        <div class="tab-switch">
+          <button data-range="daily" class="active">Today</button>
+          <button data-range="weekly">This week</button>
+        </div>
+        <div class="dash-card">
+          <div class="table-wrap"><table class="dash-table" id="attendanceTable"><thead></thead><tbody></tbody></table></div>
+          <div class="empty-state" id="attendanceEmpty" style="display:none">No attendance recorded yet.</div>
+        </div>
+      </div>
+
+      <!-- Admin view -->
+      <div id="attendanceAdminView" style="display:none">
+        <div class="field" style="max-width:220px; margin-bottom:20px;">
+          <label for="attendanceDate">Date</label>
+          <div class="input-wrap"><input type="date" id="attendanceDate"></div>
+        </div>
+        <div class="dash-card">
+          <div class="table-wrap"><table class="dash-table" id="attendanceAdminTable"><thead></thead><tbody></tbody></table></div>
+          <div class="empty-state" id="attendanceAdminEmpty" style="display:none">No employees yet.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEAVE -->
+    <section class="dash-panel" id="panel-leave">
+      <div class="panel-head">
+        <div>
+          <h2>Leave</h2>
+          <p id="leaveSub">Apply for time off and track approvals.</p>
+        </div>
+      </div>
+
+      <!-- Employee: apply form -->
+      <div class="dash-card" id="leaveApplyCard">
+        <h3>Apply for leave</h3>
+        <form class="dash-form" id="leaveForm">
+          <div class="field">
+            <label for="leaveType">Leave type</label>
+            <div class="input-wrap">
+              <select id="leaveType" required>
+                <option value="paid">Paid</option>
+                <option value="sick">Sick</option>
+                <option value="unpaid">Unpaid</option>
+              </select>
+            </div>
+          </div>
+          <div class="dash-form-row">
+            <div class="field">
+              <label for="leaveStart">Start date</label>
+              <div class="input-wrap"><input type="date" id="leaveStart" required></div>
+            </div>
+            <div class="field">
+              <label for="leaveEnd">End date</label>
+              <div class="input-wrap"><input type="date" id="leaveEnd" required></div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="leaveRemarks">Remarks</label>
+            <div class="input-wrap"><input type="text" id="leaveRemarks" placeholder="Optional note for HR"></div>
+          </div>
+          <button type="submit" class="btn btn-solid" id="leaveSubmit" style="align-self:flex-start;">Submit request</button>
+        </form>
+      </div>
+
+      <!-- Admin: filter -->
+      <div class="tab-switch" id="leaveFilterSwitch" style="display:none">
+        <button data-status="" class="active">All</button>
+        <button data-status="pending">Pending</button>
+        <button data-status="approved">Approved</button>
+        <button data-status="rejected">Rejected</button>
+      </div>
+
+      <div class="dash-card">
+        <h3 id="leaveListTitle">Your requests</h3>
+        <div class="table-wrap"><table class="dash-table" id="leaveTable"><thead></thead><tbody></tbody></table></div>
+        <div class="empty-state" id="leaveEmpty" style="display:none">No leave requests found.</div>
+      </div>
+    </section>
+
+    <!-- PAYROLL -->
+    <section class="dash-panel" id="panel-payroll">
+      <div class="panel-head">
+        <div>
+          <h2>Payroll</h2>
+          <p>Your current salary structure — read-only.</p>
+        </div>
+      </div>
+      <div class="dash-card">
+        <div class="net-pay-grid" id="payrollGrid"></div>
+      </div>
+    </section>
+
+    <!-- PROFILE -->
+    <section class="dash-panel" id="panel-profile">
+      <div class="panel-head">
+        <div>
+          <h2>Profile</h2>
+          <p>Personal details, job details and documents.</p>
+        </div>
+      </div>
+
+      <div class="dash-card">
+        <h3>Job details</h3>
+        <div class="net-pay-grid" id="profileJobGrid"></div>
+      </div>
+
+      <div class="dash-card">
+        <h3>Editable details</h3>
+        <form class="dash-form" id="profileForm">
+          <div class="field">
+            <label for="profilePhone">Phone</label>
+            <div class="input-wrap"><input type="text" id="profilePhone" placeholder="+91 90000 00000"></div>
+          </div>
+          <div class="field">
+            <label for="profileAddress">Address</label>
+            <div class="input-wrap"><input type="text" id="profileAddress" placeholder="Street, city, state"></div>
+          </div>
+          <div class="field">
+            <label for="profilePicture">Profile picture URL</label>
+            <div class="input-wrap"><input type="text" id="profilePicture" placeholder="https://…"></div>
+          </div>
+          <button type="submit" class="btn btn-solid" id="profileSubmit" style="align-self:flex-start;">Save changes</button>
+        </form>
+      </div>
+
+      <div class="dash-card">
+        <h3>Documents</h3>
+        <div id="profileDocs"></div>
+        <div class="empty-state" id="profileDocsEmpty" style="display:none">No documents on file. Your HR admin can add these.</div>
+      </div>
+    </section>
+
+    <!-- EMPLOYEES (admin) -->
+    <section class="dash-panel" id="panel-employees">
+      <div class="panel-head">
+        <div>
+          <h2>Employees</h2>
+          <p>Full team list — click anyone to view or edit their record.</p>
+        </div>
+      </div>
+      <div class="dash-card">
+        <div class="table-wrap"><table class="dash-table" id="employeesTable"><thead></thead><tbody></tbody></table></div>
+        <div class="empty-state" id="employeesEmpty" style="display:none">No employees yet.</div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- EMPLOYEE DETAIL MODAL (admin) -->
+<div class="modal-overlay" id="employeeModal">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <h3 id="employeeModalName">Employee</h3>
+        <p id="employeeModalMeta"></p>
+      </div>
+      <button class="modal-close" id="employeeModalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <form class="dash-form" id="employeeProfileForm" style="max-width:none;">
+      <div class="dash-form-row">
+        <div class="field">
+          <label for="empFullName">Full name</label>
+          <div class="input-wrap"><input type="text" id="empFullName"></div>
+        </div>
+        <div class="field">
+          <label for="empJobTitle">Job title</label>
+          <div class="input-wrap"><input type="text" id="empJobTitle"></div>
+        </div>
+      </div>
+      <div class="dash-form-row">
+        <div class="field">
+          <label for="empDepartment">Department</label>
+          <div class="input-wrap"><input type="text" id="empDepartment"></div>
+        </div>
+        <div class="field">
+          <label for="empDateOfJoining">Date of joining</label>
+          <div class="input-wrap"><input type="date" id="empDateOfJoining"></div>
+        </div>
+      </div>
+      <div class="dash-form-row">
+        <div class="field">
+          <label for="empPhone">Phone</label>
+          <div class="input-wrap"><input type="text" id="empPhone"></div>
+        </div>
+        <div class="field">
+          <label for="empAddress">Address</label>
+          <div class="input-wrap"><input type="text" id="empAddress"></div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-solid btn-sm" id="empProfileSubmit" style="align-self:flex-start;">Save profile</button>
+    </form>
+
+    <div class="modal-section">
+      <h4>Salary structure</h4>
+      <form class="dash-form" id="employeeSalaryForm" style="max-width:none;">
+        <div class="dash-form-row">
+          <div class="field">
+            <label for="empBasic">Basic</label>
+            <div class="input-wrap"><input type="number" min="0" id="empBasic"></div>
+          </div>
+          <div class="field">
+            <label for="empHra">HRA</label>
+            <div class="input-wrap"><input type="number" min="0" id="empHra"></div>
+          </div>
+        </div>
+        <div class="dash-form-row">
+          <div class="field">
+            <label for="empAllowances">Allowances</label>
+            <div class="input-wrap"><input type="number" min="0" id="empAllowances"></div>
+          </div>
+          <div class="field">
+            <label for="empDeductions">Deductions</label>
+            <div class="input-wrap"><input type="number" min="0" id="empDeductions"></div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-solid btn-sm" id="empSalarySubmit" style="align-self:flex-start;">Save salary</button>
+      </form>
+    </div>
+
+    <div class="modal-section">
+      <h4>Attendance history</h4>
+      <div class="table-wrap"><table class="dash-table" id="empAttendanceTable"><thead></thead><tbody></tbody></table></div>
+      <div class="empty-state" id="empAttendanceEmpty" style="display:none">No attendance recorded yet.</div>
+    </div>
+  </div>
+</div>
+
+<!-- LEAVE DECISION MODAL (admin) -->
+<div class="modal-overlay" id="leaveDecisionModal">
+  <div class="modal-card" style="max-width:440px;">
+    <div class="modal-head">
+      <div>
+        <h3 id="leaveDecisionTitle">Decide on leave request</h3>
+        <p id="leaveDecisionMeta"></p>
+      </div>
+      <button class="modal-close" id="leaveDecisionClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="field">
+      <label for="leaveDecisionComment">Comment (optional)</label>
+      <div class="input-wrap"><input type="text" id="leaveDecisionComment" placeholder="Reason or note for the employee"></div>
+    </div>
+    <div class="inline-actions" style="margin-top:20px;">
+      <button class="btn btn-solid btn-sm" id="leaveApproveBtn">Approve</button>
+      <button class="btn btn-ghost btn-sm" id="leaveRejectBtn">Reject</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script src="js/config.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

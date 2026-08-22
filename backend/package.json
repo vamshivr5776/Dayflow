@@ -1,0 +1,16 @@
+{
+  "name": "dayflow-backend",
+  "version": "1.0.0",
+  "description": "Dayflow HRMS backend API — plain Node.js, built-in SQLite, zero external dependencies.",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed:reset": "node src/db.js --reset"
+  },
+  "license": "MIT"
+}

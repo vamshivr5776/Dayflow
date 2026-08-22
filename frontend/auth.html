@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in — Dayflow</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E1815'/%3E%3Cpath d='M6 20 L13 12 L18 17 L26 8' stroke='%23FFB35C' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-layout">
+
+<!-- LEFT: BRAND PANEL -->
+<div class="brand-panel">
+  <div class="logo">
+    <span class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 14L9 8L13.5 12.5L20 5" stroke="#FFB35C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    Dayflow
+  </div>
+
+  <div class="brand-copy">
+    <span class="eyebrow">HR operating system</span>
+    <h2>Every workday,<br><span>perfectly aligned.</span></h2>
+    <p>Check in, apply for leave, and see where you stand — or, if you're HR, approve it all from one screen.</p>
+
+    <div class="mini-track">
+      <div class="mini-track-head">
+        <span>TODAY</span>
+        <span class="mono">09:00–18:00</span>
+      </div>
+      <div class="mini-bar"><div class="mini-fill"></div></div>
+      <div class="mini-dots">
+        <div class="mini-dot" style="left:2%"></div>
+        <div class="mini-dot" style="left:39%"></div>
+        <div class="mini-dot now" style="left:64%"></div>
+      </div>
+      <p class="mini-caption">Checked in at <b>09:02</b> · on track for a full day</p>
+    </div>
+  </div>
+
+  <p class="brand-fine">© 2026 Dayflow. Human Resource Management System.</p>
+</div>
+
+<!-- RIGHT: FORM PANEL -->
+<div class="form-panel">
+  <div class="form-card">
+    <div class="mode-toggle">
+      <button type="button" id="toggleSignin" class="active">Sign in</button>
+      <button type="button" id="toggleSignup">Sign up</button>
+    </div>
+
+    <h1 id="formTitle">Welcome back</h1>
+    <p class="sub" id="formSub">Sign in with your work email to continue.</p>
+
+    <!-- SIGN IN -->
+    <form id="signinForm" class="active" novalidate>
+      <div class="banner" id="signinBanner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <span id="signinBannerText"></span>
+      </div>
+
+      <div class="field">
+        <label for="signinEmail">Work email</label>
+        <div class="input-wrap">
+          <input type="email" id="signinEmail" placeholder="you@dayflow.io" autocomplete="email" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="signinPassword">Password</label>
+        <div class="input-wrap">
+          <input type="password" id="signinPassword" placeholder="••••••••" autocomplete="current-password" required>
+          <button type="button" class="toggle-visibility" data-target="signinPassword" aria-label="Show password">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="row-between">
+        <label class="remember"><input type="checkbox" id="rememberMe" checked> Remember me</label>
+        <a href="#" class="link-inline" id="forgotPassword">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="btn btn-solid" id="signinSubmit">Sign in</button>
+
+      <p class="switch-line">New to Dayflow? <a href="#" class="link-inline" data-switch="signup">Create an account</a></p>
+    </form>
+
+    <!-- SIGN UP -->
+    <form id="signupForm" novalidate>
+      <div class="banner" id="signupBanner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <span id="signupBannerText"></span>
+      </div>
+
+      <div class="banner success" id="verifyBanner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        <span id="verifyBannerText"></span>
+      </div>
+
+      <div id="signupFields">
+        <div class="field">
+          <label for="signupEmployeeId">Employee ID</label>
+          <div class="input-wrap">
+            <input type="text" id="signupEmployeeId" placeholder="DF-0042" autocomplete="off" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="signupEmail">Work email</label>
+          <div class="input-wrap">
+            <input type="email" id="signupEmail" placeholder="you@dayflow.io" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Role</label>
+          <div class="role-select">
+            <label class="role-option selected" data-role="employee">
+              <input type="radio" name="role" value="employee" checked>
+              Employee
+            </label>
+            <label class="role-option" data-role="hr">
+              <input type="radio" name="role" value="hr">
+              HR / Admin
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="signupPassword">Password</label>
+          <div class="input-wrap">
+            <input type="password" id="signupPassword" placeholder="••••••••" autocomplete="new-password" required>
+            <button type="button" class="toggle-visibility" data-target="signupPassword" aria-label="Show password">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <span class="hint">8+ characters, one uppercase letter, one number.</span>
+        </div>
+
+        <button type="submit" class="btn btn-solid" id="signupSubmit">Create account</button>
+
+        <p class="switch-line">Already have an account? <a href="#" class="link-inline" data-switch="signin">Sign in</a></p>
+      </div>
+
+      <!-- Shown after a successful sign-up, in place of the fields above -->
+      <div id="verifyFields" style="display:none; flex-direction:column; gap:18px;">
+        <div class="field">
+          <label for="verifyCode">Verification code</label>
+          <div class="input-wrap">
+            <input type="text" id="verifyCode" placeholder="a1b2c3d4" autocomplete="off">
+          </div>
+          <span class="hint">This demo has no email provider, so the code is shown above instead of emailed to you.</span>
+        </div>
+        <button type="button" class="btn btn-solid" id="verifySubmit">Verify email</button>
+        <p class="switch-line">Wrong details? <a href="#" class="link-inline" data-switch="signup-restart">Start over</a></p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
