@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dayflow — Every workday, perfectly aligned.</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E1815'/%3E%3Cpath d='M6 20 L13 12 L18 17 L26 8' stroke='%23FFB35C' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dayflow — Every workday, perfectly aligned.</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E1815'/%3E%3Cpath d='M6 20 L13 12 L18 17 L26 8' stroke='%23FFB35C' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Link to merged styles -->
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -32,8 +29,9 @@
       <li><a href="#get-started">Get started</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="#" class="btn btn-ghost">Sign in</a>
-      <a href="#get-started" class="btn btn-solid">Get started</a>
+      <!-- Changed link to auth.html -->
+      <a href="auth.html" class="btn btn-ghost">Sign in</a>
+      <a href="auth.html" class="btn btn-solid">Get started</a>
     </div>
   </nav>
 </header>
@@ -46,11 +44,13 @@
       <h1>Every workday,<br><span>perfectly aligned.</span></h1>
       <p class="lede">Dayflow brings attendance, leave, payroll visibility and approvals into one place — so employees always know where they stand, and HR never chases a spreadsheet again.</p>
       <div class="hero-ctas">
-        <a href="#get-started" class="btn btn-solid">Create your account</a>
+        <!-- Changed link to auth.html -->
+        <a href="auth.html" class="btn btn-solid">Create your account</a>
         <a href="#features" class="btn btn-ghost">See how it works</a>
       </div>
     </div>
 
+    <!-- Timeline UI... -->
     <div class="wrap">
       <div class="timeline-card reveal">
         <div class="timeline-head">
@@ -59,7 +59,6 @@
         </div>
         <div class="track-area">
           <div class="track"><div class="track-fill"></div></div>
-
           <div class="tick" style="left:0%"></div>
           <div class="tick-label" style="left:0%">09:00</div>
           <div class="tick" style="left:25%"></div>
@@ -104,7 +103,6 @@
         <h2>Everything HR touches, in one system.</h2>
         <p>Six workflows, one login — built around how admins and employees actually move through a workday.</p>
       </div>
-
       <div class="feature-grid reveal">
         <div class="feature">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
@@ -184,8 +182,8 @@
       <div class="cta-band reveal">
         <h2>Bring your team into flow.</h2>
         <div class="cta-band-actions">
-          <a href="#" class="btn btn-solid">Sign up free</a>
-          <a href="#" class="btn btn-ghost">Sign in</a>
+          <a href="auth.html" class="btn btn-solid">Sign up free</a>
+          <a href="auth.html" class="btn btn-ghost">Sign in</a>
         </div>
       </div>
     </div>
